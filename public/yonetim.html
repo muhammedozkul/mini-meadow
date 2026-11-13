@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Yönetim · Mini Meadow</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/stil.css">
+  <link rel="stylesheet" href="/yonetim.css">
+  <script type="module" src="/yonetim.js"></script>
+</head>
+<body class="yonetim">
+  <!-- Giriş / ilk kurulum -->
+  <section class="giris" id="giris" hidden>
+    <form class="giris-kart" id="girisForm">
+      <img src="/favicon.svg" alt="" width="56" height="56">
+      <h1 id="girisBaslik">Yönetim paneli</h1>
+      <p id="girisAciklama">Devam etmek için panel şifresini gir.</p>
+      <label>Şifre<input type="password" name="sifre" autocomplete="current-password" required></label>
+      <label id="tekrarAlan" hidden>Şifre (tekrar)<input type="password" name="tekrar" autocomplete="new-password"></label>
+      <p class="form-hata" id="girisHata" role="alert" hidden></p>
+      <button class="dugme ana tam" type="submit" id="girisDugme">Giriş yap</button>
+      <a class="geri-baglanti" href="/">← Mağazaya dön</a>
+    </form>
+  </section>
+
+  <!-- Panel -->
+  <div class="panel" id="panel" hidden>
+    <header class="p-ust">
+      <div class="p-ust-ic">
+        <a class="logo" href="/" title="Mağazayı aç">
+          <img src="/favicon.svg" alt="" width="34" height="34">
+          <span class="logo-ad"><span id="panelMagazaAdi">Mini Meadow</span> <small>panel</small></span>
+        </a>
+        <nav class="sekmeler" id="sekmeler" role="tablist" aria-label="Panel bölümleri">
+          <button type="button" role="tab" data-sekme="ozet" aria-selected="true">Özet</button>
+          <button type="button" role="tab" data-sekme="siparisler">Siparişler <b class="sayac" id="yeniSiparisSayi" hidden></b></button>
+          <button type="button" role="tab" data-sekme="urunler">Ürünler</button>
+          <button type="button" role="tab" data-sekme="kategoriler">Kategoriler</button>
+          <button type="button" role="tab" data-sekme="ayarlar">Ayarlar</button>
+        </nav>
+        <div class="p-ust-sag">
+          <a class="dugme ikincil kucuk" href="/" target="_blank" rel="noopener">Mağaza ↗</a>
+          <button class="dugme ikincil kucuk" type="button" id="cikis">Çıkış</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="p-govde">
+      <!-- Özet -->
+      <section class="bolum" data-bolum="ozet">
+        <h2>Merhaba 👋</h2>
+        <div class="istatistik" id="istatistik"></div>
+        <div class="iki-sutun">
+          <div class="kutu-kart">
+            <h3>Stoku azalanlar</h3>
+            <ul class="liste" id="azalanlar"></ul>
+          </div>
+          <div class="kutu-kart">
+            <h3>Son siparişler</h3>
+            <ul class="liste" id="sonSiparisler"></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Siparişler -->
+      <section class="bolum" data-bolum="siparisler" hidden>
+        <div class="bolum-ust">
+          <h2>Siparişler</h2>
+          <label class="secim"><span>Durum</span>
+            <select id="siparisFiltre">
+              <option value="hepsi">Hepsi</option>
+              <option value="yeni">Yeni</option>
+              <option value="onaylandi">Onaylandı</option>
+              <option value="kargoda">Kargoda</option>
+              <option value="teslim">Teslim edildi</option>
+              <option value="iptal">İptal</option>
+            </select>
+          </label>
+        </div>
+        <p class="ipucu">Müşteri sepetini WhatsApp'a gönderdiğinde sipariş burada "Yeni" olarak görünür. Durumu <b>Onaylandı</b> yaptığında ürünler stoktan düşer; <b>İptal</b> edersen stok geri eklenir.</p>
+        <div class="siparisler" id="siparisListe"></div>
+      </section>
+
+      <!-- Ürünler -->
+      <section class="bolum" data-bolum="urunler" hidden>
+        <div class="bolum-ust">
+          <h2>Ürünler</h2>
+          <div class="arac">
+            <label class="arama"><span class="gizli">Ürün ara</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <input id="urunAra" type="search" placeholder="Ara…" autocomplete="off">
+            </label>
+            <button class="dugme ana" type="button" id="yeniUrun">+ Yeni ürün</button>
+          </div>
+        </div>
+        <div class="urun-tablo" id="urunTablo"></div>
+      </section>
+
+      <!-- Kategoriler -->
+      <section class="bolum" data-bolum="kategoriler" hidden>
+        <h2>Kategoriler</h2>
+        <p class="ipucu">Mağazada ürün filtresinde görünen kategoriler. İçinde ürün olan kategori silinemez.</p>
+        <ul class="kategori-liste" id="kategoriListe"></ul>
+        <form class="satir-form" id="kategoriForm">
+          <input name="ad" placeholder="Yeni kategori adı" maxlength="40" required aria-label="Yeni kategori adı">
+          <button class="dugme ana" type="submit">Ekle</button>
+        </form>
+      </section>
+
+      <!-- Ayarlar -->
+      <section class="bolum" data-bolum="ayarlar" hidden>
+        <h2>Ayarlar</h2>
+        <div class="iki-sutun">
+          <form class="kutu-kart form" id="ayarForm">
+            <h3>Mağaza</h3>
+            <label>Mağaza adı<input name="magazaAdi" maxlength="40" required></label>
+            <label>Slogan <small>(sayfanın altında)</small><input name="slogan" maxlength="120"></label>
+            <label>Duyuru şeridi <small>(boşsa görünmez)</small><input name="duyuru" maxlength="140"></label>
+            <label>WhatsApp numarası <small>(ülke koduyla, ör. 905xxxxxxxxx; boşsa kişi seçtirir)</small><input name="whatsapp" inputmode="tel" maxlength="20"></label>
+            <div class="yan-yana">
+              <label>Kargo ücreti (₺)<input name="kargoUcreti" inputmode="decimal" required></label>
+              <label>Ücretsiz kargo sınırı (₺)<input name="ucretsizKargo" inputmode="decimal" required></label>
+            </div>
+            <p class="form-hata" id="ayarHata" role="alert" hidden></p>
+            <button class="dugme ana" type="submit">Kaydet</button>
+          </form>
+          <form class="kutu-kart form" id="sifreForm">
+            <h3>Panel şifresi</h3>
+            <p class="ipucu">Şifre proje klasöründeki <code>.env</code> dosyasında durur. Unutursan o dosyadaki <code>YONETIM_SIFRE</code> satırını değiştirebilirsin.</p>
+            <label>Mevcut şifre<input type="password" name="eski" autocomplete="current-password" required></label>
+            <label>Yeni şifre <small>(en az 8 karakter)</small><input type="password" name="yeni" autocomplete="new-password" minlength="8" required></label>
+            <p class="form-hata" id="sifreHata" role="alert" hidden></p>
+            <button class="dugme ikincil" type="submit">Şifreyi değiştir</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Ürün düzenleyici -->
+  <dialog class="duzenleyici" id="duzenleyici" aria-labelledby="dBaslik">
+    <form id="urunForm" novalidate>
+      <div class="d-ust">
+        <h3 id="dBaslik">Yeni ürün</h3>
+        <button class="kapat" type="button" data-kapat aria-label="Kapat">×</button>
+      </div>
+      <div class="d-govde">
+        <div class="d-onizleme">
+          <div class="d-resim" id="dResim"></div>
+          <div class="d-gorsel-ayar">
+            <label>Çizim<select name="cizim" id="dCizim"></select></label>
+            <div class="yan-yana">
+              <label>Renk<input type="color" name="renk" value="#7cc4f2"></label>
+              <label>Desen<select name="desen" id="dDesen"></select></label>
+            </div>
+            <div class="foto-satir">
+              <label class="dugme ikincil kucuk dosya">📷 Fotoğraf yükle<input type="file" id="dFoto" accept="image/jpeg,image/png,image/webp" hidden></label>
+              <button class="dugme ikincil kucuk" type="button" id="dFotoKaldir" hidden>Fotoğrafı kaldır</button>
+            </div>
+            <p class="ipucu kucuk">Fotoğraf yüklersen çizim yerine o görünür. Yalnız kendi çektiğin ya da kullanma hakkın olan fotoğrafları yükle.</p>
+          </div>
+        </div>
+        <div class="d-alanlar">
+          <label>Ürün adı *<input name="ad" maxlength="80" required></label>
+          <label>Açıklama<textarea name="aciklama" rows="3" maxlength="600"></textarea></label>
+          <div class="yan-yana">
+            <label>Kategori *<select name="kategori" id="dKategori" required></select></label>
+            <label>Yaş grubu<select name="yasGrubu"><option value="cocuk">Çocuk</option><option value="bebek">Bebek</option></select></label>
+            <label>Kimin için<select name="cinsiyet"><option value="unisex">Unisex</option><option value="kiz">Kız</option><option value="erkek">Erkek</option></select></label>
+          </div>
+          <div class="yan-yana">
+            <label>Fiyat (₺) *<input name="fiyat" inputmode="decimal" required></label>
+            <label>İndirimli fiyat (₺)<input name="indirimli" inputmode="decimal" placeholder="Yoksa boş bırak"></label>
+          </div>
+          <div class="isaretler">
+            <label class="kutu"><input type="checkbox" name="yeni"> "Yeni" rozeti</label>
+            <label class="kutu"><input type="checkbox" name="aktif" checked> Mağazada görünsün</label>
+          </div>
+          <fieldset class="stok-alan">
+            <legend>Bedenler ve stok</legend>
+            <div class="hazir">
+              <span>Hazır:</span>
+              <button type="button" class="cip kucuk" data-hazir="bebek">Bebek bedenleri</button>
+              <button type="button" class="cip kucuk" data-hazir="cocuk">Çocuk bedenleri</button>
+              <button type="button" class="cip kucuk" data-hazir="tek">Tek beden</button>
+            </div>
+            <div class="stok-satirlar" id="stokSatirlar"></div>
+            <button type="button" class="dugme ikincil kucuk" id="bedenEkle">+ Beden ekle</button>
+          </fieldset>
+        </div>
+      </div>
+      <div class="d-alt">
+        <p class="form-hata" id="urunHata" role="alert" hidden></p>
+        <button class="dugme ikincil" type="button" data-kapat>Vazgeç</button>
+        <button class="dugme ana" type="submit" id="urunKaydet">Kaydet</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="onay" id="onay">
+    <form method="dialog">
+      <p id="onayMetin"></p>
+      <div class="onay-dugmeler">
+        <button class="dugme ikincil" value="hayir">Vazgeç</button>
+        <button class="dugme ana tehlike" value="evet" id="onayEvet">Sil</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="bildirim" id="bildirim" role="status" aria-live="polite"></div>
+</body>
+</html>

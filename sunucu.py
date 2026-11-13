@@ -172,6 +172,11 @@ def kurulum() -> None:
             print("Örnek ürünler oluşturuldu:", DOSYALAR["urunler"])
         if not DOSYALAR["siparisler"].exists():
             yaz("siparisler", [])
+        # Panelde yüklenip kaydedilmeden vazgeçilen fotoğrafları temizle.
+        kullanilan = {u.get("gorsel") for u in oku("urunler")}
+        for dosya in GORSELLER.iterdir():
+            if GORSEL_RE.match(dosya.name) and dosya.name not in kullanilan:
+                dosya.unlink()
 
 
 # ---------------------------------------------------------------- para

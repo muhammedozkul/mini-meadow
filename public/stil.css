@@ -29,6 +29,8 @@ body {
 }
 body.kilitli { overflow: hidden; }
 img, svg { display: block; max-width: 100%; }
+.cizim { display: grid; place-items: center; min-width: 0; }
+.cizim svg { width: 100%; height: 100%; }
 h1, h2, h3, h4 { font-family: var(--baslik); line-height: 1.15; margin: 0; }
 a { color: inherit; }
 button, input, select, textarea { font: inherit; color: inherit; }
@@ -220,10 +222,11 @@ tbody tr:nth-child(even) { background: #fffcf8; }
 .urun-pencere::backdrop { background: rgba(47, 42, 59, .45); backdrop-filter: blur(3px); }
 .urun-pencere[open] { animation: belir .2s ease; }
 @keyframes belir { from { opacity: 0; transform: translateY(14px) scale(.98); } }
-.p-ic { display: grid; grid-template-columns: 1fr 1fr; }
-.p-gorsel { aspect-ratio: 1; display: grid; place-items: center; }
-.p-gorsel .cizim { width: 100%; height: 100%; padding: 12%; }
-.p-gorsel img { width: 100%; height: 100%; object-fit: cover; }
+.p-ic { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.p-gorsel { aspect-ratio: 1; position: relative; overflow: hidden; min-width: 0; }
+.p-gorsel .cizim, .p-gorsel img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.p-gorsel .cizim { padding: 12%; }
+.p-gorsel img { object-fit: cover; }
 .p-bilgi { padding: 34px 30px 28px; display: flex; flex-direction: column; gap: 8px; }
 .p-kat { margin: 0; font-size: 13px; font-weight: 800; color: var(--soluk); text-transform: uppercase; letter-spacing: .6px; }
 .p-bilgi h3 { font-size: 30px; font-weight: 800; padding-right: 30px; }
@@ -329,7 +332,7 @@ tbody tr:nth-child(even) { background: #fffcf8; }
 @media (max-width: 760px) {
   .hero { grid-template-columns: 1fr; padding-top: 28px; gap: 10px; }
   .hero-sanat { max-width: 320px; order: -1; }
-  .p-ic { grid-template-columns: 1fr; }
+  .p-ic { grid-template-columns: minmax(0, 1fr); }
   .p-gorsel { aspect-ratio: 16 / 10; }
   .p-gorsel .cizim { padding: 6%; }
   .p-bilgi { padding: 20px 20px 22px; }
@@ -347,14 +350,21 @@ tbody tr:nth-child(even) { background: #fffcf8; }
   .urun-alt { flex-direction: column; align-items: stretch; }
   .mini-dugme { padding: 8px 10px; }
   .beden-ozet { display: none; }
-  .secim { flex: 1 1 calc(50% - 5px); }
-  .secim select { max-width: none; flex: 1; min-width: 0; }
+  .secim { flex: 1 1 140px; min-width: 0; font-size: 13px; }
+  .secim select { max-width: none; flex: 1; min-width: 0; width: 100%; }
+  .cipler { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding: 2px 16px; scrollbar-width: none; }
+  .cipler::-webkit-scrollbar { display: none; }
+  .hero-sanat { max-width: 250px; }
   .logo-ad { font-size: 21px; }
   .sepet-dugme span { display: none; }
   .sepet-dugme { padding: 0 12px; }
-  .urun-pencere { width: 100%; max-height: 92dvh; margin: auto 0 0; border-radius: 26px 26px 0 0; }
+  .urun-pencere { width: 100%; max-width: 100%; max-height: 92dvh; margin: auto 0 0; border-radius: 26px 26px 0 0; }
   .etiket { font-size: 11px; padding: 2px 8px; }
   .rozetler { top: 8px; left: 8px; }
+}
+@media (max-width: 520px) {
+  .bildirim { bottom: auto; top: 12px; transform: translate(-50%, -160%); border-radius: 16px; width: max-content; }
+  .bildirim.gorunur { transform: translate(-50%, 0); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
