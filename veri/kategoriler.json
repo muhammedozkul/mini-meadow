@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ust-giyim",
+    "ad": "Üst Giyim"
+  },
+  {
+    "id": "alt-giyim",
+    "ad": "Alt Giyim"
+  },
+  {
+    "id": "elbise-etek",
+    "ad": "Elbise & Etek"
+  },
+  {
+    "id": "tulum-body",
+    "ad": "Tulum & Body"
+  },
+  {
+    "id": "dis-giyim",
+    "ad": "Dış Giyim"
+  },
+  {
+    "id": "aksesuar",
+    "ad": "Aksesuar"
+  }
+]

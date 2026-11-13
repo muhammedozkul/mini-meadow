@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini Meadow · Çocuk Giyim</title>
+  <meta name="description" content="Bebek ve çocuklar için rahat, renkli kıyafetler. Sepetini hazırla, siparişini WhatsApp'tan gönder.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/stil.css">
+  <script type="module" src="/magaza.js"></script>
+</head>
+<body>
+  <div class="duyuru" id="duyuru" hidden></div>
+
+  <header class="ust">
+    <div class="ust-ic kap">
+      <a class="logo" href="#" aria-label="Ana sayfa">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 44 C24 34 24 30 24 24" stroke="#3bb39a" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M24 36 C17 36 13 31 13 27 C19 27 24 31 24 36 Z" fill="#3bb39a"/>
+          <g fill="#ff9db5"><circle cx="24" cy="11" r="6"/><circle cx="33" cy="17" r="6"/><circle cx="30" cy="27" r="6"/><circle cx="18" cy="27" r="6"/><circle cx="15" cy="17" r="6"/></g>
+          <circle cx="24" cy="19" r="5.5" fill="#ffc94d"/>
+        </svg>
+        <span class="logo-ad" id="logoAd">Mini Meadow</span>
+      </a>
+      <nav class="menu" aria-label="Ana menü">
+        <a href="#katalog" data-yas="hepsi">Tümü</a>
+        <a href="#katalog" data-yas="bebek">Bebek</a>
+        <a href="#katalog" data-yas="cocuk">Çocuk</a>
+        <a href="#nasil">Nasıl sipariş?</a>
+        <a href="#beden">Beden rehberi</a>
+      </nav>
+      <button class="sepet-dugme" id="sepetAc" type="button" aria-label="Sepeti aç">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1.2 11.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 9V6a3 3 0 0 1 6 0v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Sepet</span>
+        <b class="rozet" id="sepetSayi" hidden>0</b>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero kap">
+      <div class="hero-yazi">
+        <span class="ust-etiket">Yeni sezon geldi 🌼</span>
+        <h1>Küçük maceracılar için <em>rahat</em> ve <em>renkli</em> kıyafetler</h1>
+        <p>Oyun parkından doğum gününe, her güne uygun yumuşak parçalar. Bedenini seç, sepetini hazırla, siparişini WhatsApp'tan tek mesajla gönder.</p>
+        <div class="hero-dugmeler">
+          <a class="dugme ana" href="#katalog">Alışverişe başla</a>
+          <a class="dugme ikincil" href="#nasil">Nasıl çalışır?</a>
+        </div>
+      </div>
+      <div class="hero-sanat" id="heroSanat" aria-hidden="true">
+        <span class="balon b1"></span><span class="balon b2"></span><span class="balon b3"></span>
+      </div>
+    </section>
+
+    <section class="avantajlar kap" aria-label="Avantajlar">
+      <div><span>🚚</span><b id="kargoBilgi">Ücretsiz kargo</b><small id="kargoAlt">Belirli tutar üzeri</small></div>
+      <div><span>💬</span><b>WhatsApp'tan sipariş</b><small>Sepet tek mesajda gelir</small></div>
+      <div><span>🧺</span><b>Yumuşak kumaşlar</b><small>Cilde dost pamuk ağırlıklı</small></div>
+      <div><span>🔁</span><b>14 gün değişim</b><small>Beden uymazsa değiştir</small></div>
+    </section>
+
+    <section class="katalog kap" id="katalog">
+      <div class="baslik-satir">
+        <h2>Ürünler</h2>
+        <p class="sonuc-sayi" id="sonucSayi" aria-live="polite"></p>
+      </div>
+
+      <div class="filtreler">
+        <div class="cipler" id="kategoriCipler" role="group" aria-label="Kategori"></div>
+        <div class="filtre-satir">
+          <label class="arama">
+            <span class="gizli">Ürün ara</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input id="arama" type="search" placeholder="Ürün ara… (ör. elbise)" autocomplete="off">
+          </label>
+          <label class="secim"><span>Yaş</span>
+            <select id="yasSec">
+              <option value="hepsi">Hepsi</option>
+              <option value="bebek">Bebek (0-24 ay)</option>
+              <option value="cocuk">Çocuk (2-10 yaş)</option>
+            </select>
+          </label>
+          <label class="secim"><span>Kimin için</span>
+            <select id="cinsiyetSec">
+              <option value="hepsi">Hepsi</option>
+              <option value="kiz">Kız</option>
+              <option value="erkek">Erkek</option>
+              <option value="unisex">Unisex</option>
+            </select>
+          </label>
+          <label class="secim"><span>Sırala</span>
+            <select id="siraSec">
+              <option value="onerilen">Önerilen</option>
+              <option value="yeni">Yeni gelenler</option>
+              <option value="artan">Fiyat: düşükten yükseğe</option>
+              <option value="azalan">Fiyat: yüksekten düşüğe</option>
+              <option value="indirim">İndirimdekiler önce</option>
+            </select>
+          </label>
+          <label class="kutu"><input id="stoktaSec" type="checkbox"> Yalnız stokta olanlar</label>
+        </div>
+      </div>
+
+      <div class="urunler" id="urunler" aria-live="polite">
+        <p class="yukleniyor">Ürünler yükleniyor…</p>
+      </div>
+      <div class="bos" id="bosSonuc" hidden>
+        <p>Bu filtrelere uyan ürün bulamadık 🧐</p>
+        <button class="dugme ikincil" id="filtreSifirla" type="button">Filtreleri temizle</button>
+      </div>
+    </section>
+
+    <section class="nasil kap" id="nasil">
+      <h2>Nasıl sipariş verilir?</h2>
+      <ol class="adimlar">
+        <li><span>1</span><b>Ürünü ve bedeni seç</b><p>Ürüne tıkla, çocuğunun yaşına uygun bedeni seç ve sepete ekle.</p></li>
+        <li><span>2</span><b>Sepetini gözden geçir</b><p>Adetleri ayarla, kargo bedava sınırına ne kadar kaldığını gör.</p></li>
+        <li><span>3</span><b>WhatsApp'tan gönder</b><p>Adını ve adresini yaz; sepetin hazır bir mesaj olarak WhatsApp'ta açılır.</p></li>
+        <li><span>4</span><b>Onay ve kargo</b><p>Siparişini onaylayıp ödeme bilgisini mesajla iletiriz, ürünler kargoya çıkar.</p></li>
+      </ol>
+    </section>
+
+    <section class="beden kap" id="beden">
+      <h2>Beden rehberi</h2>
+      <p class="aciklama">Ölçüler yaklaşık değerlerdir. İki beden arasında kalırsan büyük olanı seçmeni öneririz.</p>
+      <div class="tablo-kap">
+        <table>
+          <thead><tr><th>Beden</th><th>Boy (cm)</th><th>Kilo (kg)</th></tr></thead>
+          <tbody>
+            <tr><td>0-3 ay</td><td>56-62</td><td>3,5-6</td></tr>
+            <tr><td>3-6 ay</td><td>62-68</td><td>6-8</td></tr>
+            <tr><td>6-12 ay</td><td>68-80</td><td>8-10</td></tr>
+            <tr><td>12-18 ay</td><td>80-86</td><td>10-11,5</td></tr>
+            <tr><td>18-24 ay</td><td>86-92</td><td>11,5-13</td></tr>
+            <tr><td>2-3 yaş</td><td>92-98</td><td>13-15</td></tr>
+            <tr><td>3-4 yaş</td><td>98-104</td><td>15-17</td></tr>
+            <tr><td>4-5 yaş</td><td>104-110</td><td>17-19</td></tr>
+            <tr><td>5-6 yaş</td><td>110-116</td><td>19-21</td></tr>
+            <tr><td>7-8 yaş</td><td>122-128</td><td>23-27</td></tr>
+            <tr><td>9-10 yaş</td><td>134-140</td><td>28-33</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="alt">
+    <div class="kap alt-ic">
+      <div>
+        <b class="alt-ad" id="altAd">Mini Meadow</b>
+        <p class="alt-slogan" id="altSlogan"></p>
+        <p>Bu site bir öğrenme projesidir; gerçek satış yapılmaz. Ürün görselleri sitenin kendi çizimleridir.</p>
+      </div>
+      <a class="panel-baglanti" href="/yonetim">Yönetim paneli</a>
+    </div>
+  </footer>
+
+  <!-- Ürün ayrıntısı -->
+  <dialog class="urun-pencere" id="urunPencere" aria-labelledby="pAd">
+    <button class="kapat" type="button" data-kapat aria-label="Kapat">×</button>
+    <div class="p-ic">
+      <div class="p-gorsel" id="pGorsel"></div>
+      <div class="p-bilgi">
+        <p class="p-kat" id="pKat"></p>
+        <h3 id="pAd"></h3>
+        <p class="p-fiyat" id="pFiyat"></p>
+        <p class="p-acik" id="pAcik"></p>
+        <fieldset class="bedenler">
+          <legend>Beden seç</legend>
+          <div id="pBedenler"></div>
+          <p class="beden-not" id="pBedenNot" aria-live="polite"></p>
+        </fieldset>
+        <div class="p-alt">
+          <div class="adet" aria-label="Adet">
+            <button type="button" id="pAzalt" aria-label="Azalt">−</button>
+            <output id="pAdet">1</output>
+            <button type="button" id="pArttir" aria-label="Arttır">+</button>
+          </div>
+          <button class="dugme ana" id="pEkle" type="button" disabled>Önce beden seç</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Sepet -->
+  <div class="perde" id="perde" hidden></div>
+  <aside class="sepet" id="sepet" aria-label="Sepet" aria-hidden="true" inert>
+    <div class="sepet-ust">
+      <h3 id="sepetBaslik">Sepetim</h3>
+      <button class="kapat" type="button" id="sepetKapat" aria-label="Sepeti kapat">×</button>
+    </div>
+
+    <div class="sepet-adim" id="adimSepet">
+      <div class="kargo-cubuk" id="kargoCubuk"><p id="kargoMesaj"></p><div class="cubuk"><span id="kargoDolu"></span></div></div>
+      <ul class="kalemler" id="kalemler"></ul>
+      <div class="sepet-bos" id="sepetBos">
+        <p>Sepetin şimdilik boş 🧸</p>
+        <button class="dugme ikincil" type="button" data-sepet-kapat>Ürünlere göz at</button>
+      </div>
+      <div class="ozet" id="ozet">
+        <p><span>Ara toplam</span><b id="araToplam"></b></p>
+        <p><span>Kargo</span><b id="kargoTutar"></b></p>
+        <p class="toplam"><span>Toplam</span><b id="genelToplam"></b></p>
+        <button class="dugme ana tam" id="devamEt" type="button">Siparişi tamamla</button>
+      </div>
+    </div>
+
+    <form class="sepet-adim" id="adimForm" hidden novalidate>
+      <button class="geri" type="button" id="geriDon">← Sepete dön</button>
+      <p class="form-bilgi">Bilgilerini yaz, siparişin hazır bir WhatsApp mesajı olarak açılsın. Ödeme ve onay WhatsApp'tan yapılır.</p>
+      <label>Ad soyad *<input name="ad" autocomplete="name" required maxlength="80"></label>
+      <label>Telefon <small>(isteğe bağlı)</small><input name="telefon" type="tel" autocomplete="tel" maxlength="25" inputmode="tel"></label>
+      <label>Teslimat adresi *<textarea name="adres" rows="3" autocomplete="street-address" required maxlength="400"></textarea></label>
+      <label>Not <small>(isteğe bağlı)</small><textarea name="not" rows="2" maxlength="300" placeholder="Hediye paketi, teslim saati…"></textarea></label>
+      <p class="form-hata" id="formHata" role="alert" hidden></p>
+      <p class="form-toplam">Ödenecek: <b id="formToplam"></b></p>
+      <button class="dugme whatsapp tam" type="submit" id="gonder">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.2Z"/></svg>
+        WhatsApp'ta gönder
+      </button>
+    </form>
+
+    <div class="sepet-adim tamam" id="adimTamam" hidden>
+      <div class="tamam-ikon">🎉</div>
+      <h4>Siparişin hazır!</h4>
+      <p>Sipariş numaran: <b id="siparisNo"></b></p>
+      <p class="kucuk">WhatsApp yeni sekmede açıldı. Açılmadıysa aşağıdaki düğmeye bas ve mesajı gönder.</p>
+      <a class="dugme whatsapp tam" id="waLink" href="#" target="_blank" rel="noopener noreferrer">WhatsApp'ı aç</a>
+      <details class="mesaj-onizleme"><summary>Gönderilecek mesaj</summary><pre id="mesajOnizleme"></pre></details>
+      <button class="dugme ikincil tam" type="button" data-sepet-kapat>Alışverişe devam et</button>
+    </div>
+  </aside>
+
+  <div class="bildirim" id="bildirim" role="status" aria-live="polite"></div>
+</body>
+</html>

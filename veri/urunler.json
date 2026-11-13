@@ -1,0 +1,618 @@
+[
+  {
+    "id": "cizgili-pamuklu-tisort",
+    "ad": "Çizgili Pamuklu Tişört",
+    "aciklama": "Yumuşak penye kumaş, her gün giyilecek rahat kesim. Yıkamada şeklini korur.",
+    "kategori": "ust-giyim",
+    "yasGrubu": "cocuk",
+    "cinsiyet": "unisex",
+    "fiyat": 249.9,
+    "indirimli": null,
+    "cizim": "tisort",
+    "renk": "#7cc4f2",
+    "desen": "cizgili",
+    "gorsel": "",
+    "yeni": false,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "2-3 yaş",
+        "adet": 4
+      },
+      {
+        "beden": "3-4 yaş",
+        "adet": 6
+      },
+      {
+        "beden": "4-5 yaş",
+        "adet": 5
+      },
+      {
+        "beden": "5-6 yaş",
+        "adet": 3
+      },
+      {
+        "beden": "7-8 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "9-10 yaş",
+        "adet": 0
+      }
+    ]
+  },
+  {
+    "id": "kapusonlu-sweatshirt",
+    "ad": "Kapüşonlu Sweatshirt",
+    "aciklama": "İçi şardonlu, kanguru cepli kapüşonlu sweatshirt. Serin akşamların favorisi.",
+    "kategori": "ust-giyim",
+    "yasGrubu": "cocuk",
+    "cinsiyet": "unisex",
+    "fiyat": 449.9,
+    "indirimli": null,
+    "cizim": "sweatshirt",
+    "renk": "#3bb39a",
+    "desen": "duz",
+    "gorsel": "",
+    "yeni": true,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "2-3 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "3-4 yaş",
+        "adet": 4
+      },
+      {
+        "beden": "4-5 yaş",
+        "adet": 4
+      },
+      {
+        "beden": "5-6 yaş",
+        "adet": 3
+      },
+      {
+        "beden": "7-8 yaş",
+        "adet": 1
+      },
+      {
+        "beden": "9-10 yaş",
+        "adet": 1
+      }
+    ]
+  },
+  {
+    "id": "puantiyeli-kisa-kollu-body",
+    "ad": "Puantiyeli Kısa Kollu Body",
+    "aciklama": "Çıtçıtlı, zarf yakalı bebek body. Kolay giydirilir, cilde dost pamuk.",
+    "kategori": "tulum-body",
+    "yasGrubu": "bebek",
+    "cinsiyet": "unisex",
+    "fiyat": 179.9,
+    "indirimli": 149.9,
+    "cizim": "body",
+    "renk": "#ffc94d",
+    "desen": "puantiye",
+    "gorsel": "",
+    "yeni": false,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "0-3 ay",
+        "adet": 5
+      },
+      {
+        "beden": "3-6 ay",
+        "adet": 6
+      },
+      {
+        "beden": "6-12 ay",
+        "adet": 4
+      },
+      {
+        "beden": "12-18 ay",
+        "adet": 2
+      },
+      {
+        "beden": "18-24 ay",
+        "adet": 1
+      }
+    ]
+  },
+  {
+    "id": "yildizli-uzun-kollu-body",
+    "ad": "Yıldızlı Uzun Kollu Body",
+    "aciklama": "Uzun kollu, alttan çıtçıtlı body. Gece gökyüzü desenli.",
+    "kategori": "tulum-body",
+    "yasGrubu": "bebek",
+    "cinsiyet": "unisex",
+    "fiyat": 199.9,
+    "indirimli": null,
+    "cizim": "body",
+    "renk": "#b9a7f0",
+    "desen": "yildiz",
+    "gorsel": "",
+    "yeni": true,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "0-3 ay",
+        "adet": 3
+      },
+      {
+        "beden": "3-6 ay",
+        "adet": 3
+      },
+      {
+        "beden": "6-12 ay",
+        "adet": 2
+      },
+      {
+        "beden": "12-18 ay",
+        "adet": 2
+      },
+      {
+        "beden": "18-24 ay",
+        "adet": 0
+      }
+    ]
+  },
+  {
+    "id": "puantiyeli-yazlik-elbise",
+    "ad": "Puantiyeli Yazlık Elbise",
+    "aciklama": "Hafif dokuma kumaş, belde kurdele detayı. Yaz günleri için serin bir seçim.",
+    "kategori": "elbise-etek",
+    "yasGrubu": "cocuk",
+    "cinsiyet": "kiz",
+    "fiyat": 389.9,
+    "indirimli": 329.9,
+    "cizim": "elbise",
+    "renk": "#ff9db5",
+    "desen": "puantiye",
+    "gorsel": "",
+    "yeni": false,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "2-3 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "3-4 yaş",
+        "adet": 3
+      },
+      {
+        "beden": "4-5 yaş",
+        "adet": 3
+      },
+      {
+        "beden": "5-6 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "7-8 yaş",
+        "adet": 1
+      },
+      {
+        "beden": "9-10 yaş",
+        "adet": 1
+      }
+    ]
+  },
+  {
+    "id": "yildizli-tul-elbise",
+    "ad": "Yıldızlı Tül Elbise",
+    "aciklama": "Kat kat tül etek, astarlı gövde. Doğum günleri ve özel günler için.",
+    "kategori": "elbise-etek",
+    "yasGrubu": "cocuk",
+    "cinsiyet": "kiz",
+    "fiyat": 459.9,
+    "indirimli": null,
+    "cizim": "elbise",
+    "renk": "#c9b6ff",
+    "desen": "yildiz",
+    "gorsel": "",
+    "yeni": true,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "2-3 yaş",
+        "adet": 1
+      },
+      {
+        "beden": "3-4 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "4-5 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "5-6 yaş",
+        "adet": 1
+      },
+      {
+        "beden": "7-8 yaş",
+        "adet": 1
+      },
+      {
+        "beden": "9-10 yaş",
+        "adet": 0
+      }
+    ]
+  },
+  {
+    "id": "pileli-etek",
+    "ad": "Pileli Etek",
+    "aciklama": "Lastikli bel, rahat pile kesim. Tişört ve sweatlerle kolay kombinlenir.",
+    "kategori": "elbise-etek",
+    "yasGrubu": "cocuk",
+    "cinsiyet": "kiz",
+    "fiyat": 279.9,
+    "indirimli": null,
+    "cizim": "etek",
+    "renk": "#e86a8a",
+    "desen": "duz",
+    "gorsel": "",
+    "yeni": false,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "2-3 yaş",
+        "adet": 3
+      },
+      {
+        "beden": "3-4 yaş",
+        "adet": 3
+      },
+      {
+        "beden": "4-5 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "5-6 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "7-8 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "9-10 yaş",
+        "adet": 1
+      }
+    ]
+  },
+  {
+    "id": "rahat-kesim-jogger",
+    "ad": "Rahat Kesim Jogger",
+    "aciklama": "Lastikli paça ve bel, oyun parkının en rahat pantolonu.",
+    "kategori": "alt-giyim",
+    "yasGrubu": "cocuk",
+    "cinsiyet": "unisex",
+    "fiyat": 299.9,
+    "indirimli": null,
+    "cizim": "pantolon",
+    "renk": "#6b7a99",
+    "desen": "duz",
+    "gorsel": "",
+    "yeni": false,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "2-3 yaş",
+        "adet": 4
+      },
+      {
+        "beden": "3-4 yaş",
+        "adet": 5
+      },
+      {
+        "beden": "4-5 yaş",
+        "adet": 5
+      },
+      {
+        "beden": "5-6 yaş",
+        "adet": 4
+      },
+      {
+        "beden": "7-8 yaş",
+        "adet": 3
+      },
+      {
+        "beden": "9-10 yaş",
+        "adet": 2
+      }
+    ]
+  },
+  {
+    "id": "fitilli-kadife-pantolon",
+    "ad": "Fitilli Kadife Pantolon",
+    "aciklama": "Yumuşak fitilli kadife, ayarlanabilir iç lastik.",
+    "kategori": "alt-giyim",
+    "yasGrubu": "cocuk",
+    "cinsiyet": "erkek",
+    "fiyat": 339.9,
+    "indirimli": null,
+    "cizim": "pantolon",
+    "renk": "#a0704f",
+    "desen": "cizgili",
+    "gorsel": "",
+    "yeni": false,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "2-3 yaş",
+        "adet": 0
+      },
+      {
+        "beden": "3-4 yaş",
+        "adet": 0
+      },
+      {
+        "beden": "4-5 yaş",
+        "adet": 0
+      },
+      {
+        "beden": "5-6 yaş",
+        "adet": 0
+      },
+      {
+        "beden": "7-8 yaş",
+        "adet": 0
+      },
+      {
+        "beden": "9-10 yaş",
+        "adet": 0
+      }
+    ]
+  },
+  {
+    "id": "denim-salopet",
+    "ad": "Denim Salopet",
+    "aciklama": "Yumuşak yıkamalı denim, ayarlanabilir askılar ve ön cep.",
+    "kategori": "tulum-body",
+    "yasGrubu": "cocuk",
+    "cinsiyet": "unisex",
+    "fiyat": 499.9,
+    "indirimli": 429.9,
+    "cizim": "salopet",
+    "renk": "#4f7fbf",
+    "desen": "duz",
+    "gorsel": "",
+    "yeni": false,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "2-3 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "3-4 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "4-5 yaş",
+        "adet": 3
+      },
+      {
+        "beden": "5-6 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "7-8 yaş",
+        "adet": 1
+      },
+      {
+        "beden": "9-10 yaş",
+        "adet": 0
+      }
+    ]
+  },
+  {
+    "id": "bebek-salopet",
+    "ad": "Bebek Salopet",
+    "aciklama": "Bacak içi çıtçıtlı, bez değiştirmesi kolay bebek salopeti.",
+    "kategori": "tulum-body",
+    "yasGrubu": "bebek",
+    "cinsiyet": "unisex",
+    "fiyat": 359.9,
+    "indirimli": null,
+    "cizim": "salopet",
+    "renk": "#ff7a59",
+    "desen": "puantiye",
+    "gorsel": "",
+    "yeni": false,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "0-3 ay",
+        "adet": 2
+      },
+      {
+        "beden": "3-6 ay",
+        "adet": 3
+      },
+      {
+        "beden": "6-12 ay",
+        "adet": 3
+      },
+      {
+        "beden": "12-18 ay",
+        "adet": 2
+      },
+      {
+        "beden": "18-24 ay",
+        "adet": 1
+      }
+    ]
+  },
+  {
+    "id": "hafif-sisme-mont",
+    "ad": "Hafif Şişme Mont",
+    "aciklama": "Katlanınca çantaya sığan hafif şişme mont. Rüzgâr geçirmez dış yüzey.",
+    "kategori": "dis-giyim",
+    "yasGrubu": "cocuk",
+    "cinsiyet": "unisex",
+    "fiyat": 899.9,
+    "indirimli": null,
+    "cizim": "mont",
+    "renk": "#ffb347",
+    "desen": "duz",
+    "gorsel": "",
+    "yeni": true,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "2-3 yaş",
+        "adet": 1
+      },
+      {
+        "beden": "3-4 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "4-5 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "5-6 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "7-8 yaş",
+        "adet": 1
+      },
+      {
+        "beden": "9-10 yaş",
+        "adet": 1
+      }
+    ]
+  },
+  {
+    "id": "puantiyeli-yagmurluk",
+    "ad": "Puantiyeli Yağmurluk",
+    "aciklama": "Su itici kumaş, kapüşonlu ve yansıtıcı şeritli yağmurluk.",
+    "kategori": "dis-giyim",
+    "yasGrubu": "cocuk",
+    "cinsiyet": "unisex",
+    "fiyat": 749.9,
+    "indirimli": 649.9,
+    "cizim": "mont",
+    "renk": "#ffd23f",
+    "desen": "puantiye",
+    "gorsel": "",
+    "yeni": false,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "2-3 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "3-4 yaş",
+        "adet": 2
+      },
+      {
+        "beden": "4-5 yaş",
+        "adet": 1
+      },
+      {
+        "beden": "5-6 yaş",
+        "adet": 1
+      },
+      {
+        "beden": "7-8 yaş",
+        "adet": 0
+      },
+      {
+        "beden": "9-10 yaş",
+        "adet": 0
+      }
+    ]
+  },
+  {
+    "id": "ponponlu-orgu-bere",
+    "ad": "Ponponlu Örgü Bere",
+    "aciklama": "Akrilik karışımlı yumuşak örgü, kocaman ponpon.",
+    "kategori": "aksesuar",
+    "yasGrubu": "cocuk",
+    "cinsiyet": "unisex",
+    "fiyat": 149.9,
+    "indirimli": null,
+    "cizim": "bere",
+    "renk": "#ff7a59",
+    "desen": "cizgili",
+    "gorsel": "",
+    "yeni": false,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "Standart",
+        "adet": 8
+      }
+    ]
+  },
+  {
+    "id": "bebek-beresi",
+    "ad": "Bebek Beresi",
+    "aciklama": "İnce pamuk örgü, yeni doğanlar için sıcacık.",
+    "kategori": "aksesuar",
+    "yasGrubu": "bebek",
+    "cinsiyet": "unisex",
+    "fiyat": 119.9,
+    "indirimli": null,
+    "cizim": "bere",
+    "renk": "#9fd8cb",
+    "desen": "puantiye",
+    "gorsel": "",
+    "yeni": false,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "0-6 ay",
+        "adet": 4
+      },
+      {
+        "beden": "6-12 ay",
+        "adet": 3
+      }
+    ]
+  },
+  {
+    "id": "renkli-corap-seti-3-lu",
+    "ad": "Renkli Çorap Seti (3'lü)",
+    "aciklama": "Kaydırmaz tabanlı, pamuklu üçlü çorap seti.",
+    "kategori": "aksesuar",
+    "yasGrubu": "cocuk",
+    "cinsiyet": "unisex",
+    "fiyat": 129.9,
+    "indirimli": null,
+    "cizim": "corap",
+    "renk": "#7cc4f2",
+    "desen": "cizgili",
+    "gorsel": "",
+    "yeni": true,
+    "aktif": true,
+    "stok": [
+      {
+        "beden": "19-22",
+        "adet": 6
+      },
+      {
+        "beden": "23-26",
+        "adet": 5
+      },
+      {
+        "beden": "27-30",
+        "adet": 4
+      },
+      {
+        "beden": "31-34",
+        "adet": 3
+      }
+    ]
+  }
+]

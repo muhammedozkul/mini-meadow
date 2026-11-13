@@ -1,0 +1,6 @@
+# Panel şifresi ve gelen siparişler (müşteri adı/adresi) git'e girmez
+.env
+veri/siparisler.json
+veri/*.tmp
+__pycache__/
+.DS_Store
