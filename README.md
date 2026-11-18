@@ -1,42 +1,44 @@
-# Mini Meadow — çocuk giyim mağazası (öğrenme projesi)
+**English** · [Türkçe](README.tr.md)
 
-Bebek ve çocuk kıyafetleri satan hayali bir dükkanın sitesi. Gerçek satış yapılmaz; yalnız bilgisayarda çalışır.
+# Mini Meadow — kids' clothing store (learning project)
 
-## Çalıştırma
-- `Mini Meadow.command` dosyasına çift tıkla: sunucu açılır, tarayıcıda http://127.0.0.1:8772 gelir.
-- Ya da terminalde: `python3 sunucu.py` (kapatmak için Ctrl+C).
-- Ek paket gerekmez, yalnız Python 3 kullanılır.
+The website of an imaginary shop selling baby and kids' clothes. No real sales are made; it runs only on your computer.
 
-## Neler var
-- **Mağaza** (`/`): kategori, yaş, cinsiyet filtreleri, arama, sıralama; beden seçimi (stokta olmayan beden kapalı),
-  sepet (tarayıcıda saklanır), ücretsiz kargo çubuğu, WhatsApp ile sipariş.
-- **Sipariş:** Müşteri ad ve adresini yazar. Sunucu fiyatları ve stoğu kendisi kontrol eder, sipariş numarası verir,
-  hazır mesajla WhatsApp'ı açar. Sipariş panele "Yeni" olarak düşer.
-- **Yönetim paneli** (`/yonetim`): şifreli. Özet, siparişler (durum değiştirme: Onaylandı → stok düşer, İptal → stok geri gelir),
-  ürün ekle/düzenle/gizle/sil (çizim + renk + desen ya da fotoğraf), beden/stok, kategoriler, mağaza ayarları, şifre değiştirme.
+## Running it
+- Double-click `Mini Meadow.command`: the server starts and http://127.0.0.1:8772 opens in the browser.
+- Or from the terminal: `python3 sunucu.py` (Ctrl+C to stop).
+- No extra packages needed, only Python 3.
 
-## Veri (veritabanı yok)
-Zarif Çiçekçilik'teki gibi bütün veri düz JSON dosyalarında durur:
+## Features
+- **Store** (`/`): category, age and gender filters, search, sorting; size selection (out-of-stock sizes are disabled),
+  cart (saved in the browser), free-shipping progress bar, ordering via WhatsApp.
+- **Ordering:** The customer enters their name and address. The server checks prices and stock itself, assigns an order number
+  and opens WhatsApp with a ready-made message. The order shows up in the panel as "New".
+- **Admin panel** (`/yonetim`): password protected. Overview, orders (changing status: Confirmed → stock goes down, Cancelled → stock comes back),
+  add/edit/hide/delete products (drawing + color + pattern, or a photo), sizes/stock, categories, store settings, password change.
 
-| Dosya | İçerik | Git'te mi? |
+## Data (no database)
+As in Zarif Çiçekçilik, all data lives in plain JSON files:
+
+| File | Contents | In git? |
 |---|---|---|
-| `veri/urunler.json` | ürünler, fiyatlar, beden ve stoklar | evet |
-| `veri/kategoriler.json` | kategoriler (sırası da burada) | evet |
-| `veri/ayarlar.json` | mağaza adı, duyuru, WhatsApp no, kargo | evet |
-| `veri/siparisler.json` | gelen siparişler (müşteri adı/adresi) | hayır |
-| `veri/gorseller/` | panelden yüklenen fotoğraflar | evet |
-| `.env` | `YONETIM_SIFRE=...` panel şifresi | hayır |
+| `veri/urunler.json` | products, prices, sizes and stock | yes |
+| `veri/kategoriler.json` | categories (and their order) | yes |
+| `veri/ayarlar.json` | store name, announcement, WhatsApp number, shipping | yes |
+| `veri/siparisler.json` | incoming orders (customer name/address) | no |
+| `veri/gorseller/` | photos uploaded from the panel | yes |
+| `.env` | `YONETIM_SIFRE=...` panel password | no |
 
-- Dosyalar elle de düzenlenebilir; sunucu her istekte yeniden okur. JSON bozulursa panel hangi satırda olduğunu söyler.
-- Yazarken önce geçici dosyaya yazılıp yerine konur; yazım yarıda kalırsa eski dosya bozulmaz.
-- İlk açılışta `.env` yoksa panel şifre belirlemeni ister ve dosyayı kendisi yazar. Şifreyi unutursan `.env`'deki satırı değiştir.
+- The files can also be edited by hand; the server re-reads them on every request. If the JSON breaks, the panel tells you which line.
+- Writes go to a temporary file first and then replace the original; if a write is interrupted, the old file stays intact.
+- If `.env` doesn't exist on first launch, the panel asks you to set a password and writes the file itself. If you forget the password, change the line in `.env`.
 
-## Güvenlik notları
-- Sunucu yalnız `127.0.0.1`'i dinler; aynı ağdaki başka cihazlar erişemez.
-- Panel oturumu `HttpOnly; SameSite=Strict` çerezde, 8 saat. 5 dakikada 5 yanlış şifreden sonra giriş kilitlenir.
-- Veri değiştiren her istek `X-Mini-Meadow: 1` başlığı ve aynı köken ister (başka sitelerin istek atması engellenir).
-- Fotoğraflar tarayıcıda 800x800'e küçültülür; sunucu dosyanın gerçekten JPG/PNG/WEBP olduğunu baytlarından kontrol eder.
+## Security notes
+- The server listens only on `127.0.0.1`; other devices on the same network can't reach it.
+- The panel session is kept in an `HttpOnly; SameSite=Strict` cookie for 8 hours. After 5 wrong passwords in 5 minutes, login is locked.
+- Every request that changes data requires the `X-Mini-Meadow: 1` header and the same origin (blocks requests from other sites).
+- Photos are resized to 800x800 in the browser; the server checks from the file's bytes that it really is a JPG/PNG/WEBP.
 
-## Telif
-Ürün görselleri sitenin kendi SVG çizimleridir (`public/cizimler.js`). Yazı tipleri Google Fonts'tan (Baloo 2, Nunito; açık lisans).
-Panelden yalnız kendi çektiğin ya da kullanma hakkın olan fotoğrafları yükle.
+## Copyright
+Product images are the site's own SVG drawings (`public/cizimler.js`). Fonts come from Google Fonts (Baloo 2, Nunito; open licenses).
+Only upload photos you took yourself or have the right to use.
